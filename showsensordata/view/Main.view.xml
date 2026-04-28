@@ -1,0 +1,58 @@
+<mvc:View
+    controllerName="showsensordata.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <App>
+        <Page title="KI Basis Projekt">
+            <content>
+               <VBox  class="sapUiContentPadding">
+                        <Input 
+                            placeholder="Enter sensor ID" 
+                            id="sensorInput" 
+                            width="300px"
+                            valueStateText="Enter a valid sensor ID"
+                            valueState="None"/>
+                        <Button 
+                            text="Load Sensor Data" 
+                            id="loadButton"
+                            press="onLoadData"
+                            enabled="true"/>
+                        <Panel headerText="Sensor Information" id="sensorInfoPanel">
+                            <content>
+                                <VBox id="sensorInfoContent" />
+                            </content>
+                        </Panel>
+                        <Panel headerText="Sensor Data" id="sensorDataPanel">
+                            <content>
+                                <Table 
+                                    id="sensorData"
+                                    noDataText="No sensor data available"
+                                    items="{/sensorData}">
+                                    <columns>
+                                        <Column>
+                                            <Text text="Temperatur"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="Luftfeuchtigkeit"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="Datum"/>
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem>
+                                            <cells>
+                                                <Text text="{value1}"/>
+                                                <Text text="{value2}"/>
+                                                <Text text="{reading_time}"/>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </content>
+                        </Panel>
+                    </VBox>
+            </content>
+        </Page>
+    </App>
+</mvc:View>
